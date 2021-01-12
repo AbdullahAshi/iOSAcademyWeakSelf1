@@ -12,7 +12,8 @@ class ViewController: UIViewController {
         super.viewDidAppear(animated)
         let alert = UIAlertController(title: "Title", message: "Message", preferredStyle: .alert)
         referenceToAlert = alert // this refernce will cause a cycle and will require a weak self in handler
-        alert.addAction(UIAlertAction(title: "Done", style: .cancel, handler: { _ in
+        alert.addAction(UIAlertAction(title: "Done", style: .cancel, handler: { [weak self] _ in
+            guard let self = self else { return }
             self.doSomething()
         }))
         present(alert, animated: true, completion: nil)
@@ -23,7 +24,7 @@ class ViewController: UIViewController {
     }
     
     deinit {
-        print("deinit \(self)")
+        print("instance released : \(self)")
     }
 
 }
