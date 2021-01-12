@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     }
     
     deinit {
-        print("deinit \(self)")
+        print("instance released : \(self)")
     }
 
 }
