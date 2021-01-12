@@ -4,7 +4,10 @@ class ViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    foo = {
+    foo = { [weak self] in
+        guard let self = self else {
+            return
+        }
         self.getData(string: "some string", completion: { dataReturned in
             self.data = dataReturned
         })
