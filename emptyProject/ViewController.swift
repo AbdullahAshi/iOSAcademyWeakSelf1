@@ -6,17 +6,24 @@ class ViewController: UIViewController {
     super.viewDidLoad()
   }
     
+//    var foo: (() -> Void)!
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        let alert = UIAlertController(title: "Title", message: "Message", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Done", style: .cancel, handler: { _ in
-            self.doSomething()
-        }))
-        present(alert, animated: true, completion: nil)
+        foo()
     }
     
-    private func doSomething() {
-        
+    private var data: Data?
+    
+    private func getData(string: String, completion: ((Data?) -> Void)) {
+        let dataFromString = Data(string.utf8)
+        completion(dataFromString)
+    }
+    
+    func foo() {
+        getData(string: "some string", completion: { dataReturned in
+            self.data = dataReturned
+        })
     }
     
     deinit {

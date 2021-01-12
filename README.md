@@ -5,6 +5,6 @@ found in the link below :
 https://www.youtube.com/watch?v=chI-B8u4MBs
 
 
-* in this branch is the first example without modifications
+* in this branch is the second example without modifications
 no leaks occuring
 deinit gets called which means the instance get released from memory
