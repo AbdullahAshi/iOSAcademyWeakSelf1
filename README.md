@@ -7,3 +7,6 @@ https://www.youtube.com/watch?v=chI-B8u4MBs
 
 * in this branch is the second example modifying the code to make it leak 
 deinit does not get called which means the instance is not released from memory
+
+* second example timestamp
+https://youtu.be/chI-B8u4MBs?t=704
